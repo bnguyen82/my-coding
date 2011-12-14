@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module codename="com.bao.panel">
+    <module_version install_time="1323833390876" last="true" origin="installer" specification_version="1.0">
+        <file crc="874405879" name="config/Modules/com-bao-panel.xml"/>
+        <file crc="2411477513" name="modules/com-bao-panel.jar"/>
+        <file crc="265186176" name="modules/ext/jcommon-1.0.5.jar"/>
+    </module_version>
+</module>

@@ -1,0 +1,5 @@
+C:\Program Files\NetBeans 7.0.1\platform=1322470730971
+C:\Users\bnguyen39\Documents\Learning\Coding\suite3\build\cluster=1323833392283
+C:\Program Files\NetBeans 7.0.1\platform=1322470730971
+C:\Users\bnguyen39\Documents\Learning\Coding\suite3\build\testuserdir=1323833392283
+crc=7
