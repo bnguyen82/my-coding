@@ -1,0 +1,5 @@
+C:\Program Files\NetBeans 7.0.1\platform=1322470730971
+C:\Users\bnguyen39\Documents\Learning\Coding\PanelJfreeChart\build\cluster=1324028968769
+C:\Program Files\NetBeans 7.0.1\platform=1322470730971
+C:\Users\bnguyen39\Documents\Learning\Coding\PanelJfreeChart\build\testuserdir=1324028968769
+crc=7
