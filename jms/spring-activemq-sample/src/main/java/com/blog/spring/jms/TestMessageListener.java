@@ -28,6 +28,8 @@ public class TestMessageListener implements MessageListener
 	 */
 	public void onMessage(Message message)
 	{
+		ClassLoader cl = this.getClass().getClassLoader();
+		ClassLoader cl1 = messageSender_i.getClass().getClassLoader();
 		logger_c.debug("Received message from queue [" + message +"]");
 
 		/* The message must be of type TextMessage */
