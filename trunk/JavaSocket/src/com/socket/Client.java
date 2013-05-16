@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.Socket;
 
+import com.sun.xml.internal.messaging.saaj.util.ByteOutputStream;
+
 public class Client implements Runnable {
 	private int port;
 	private Socket socket = null;
@@ -16,7 +18,6 @@ public class Client implements Runnable {
 		try{
 			socket = new Socket("localhost", port);
 			OutputStream out = socket.getOutputStream();
-	
 			out.write("some data".getBytes());
 			out.flush();
 			out.close();
