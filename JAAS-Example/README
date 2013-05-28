@@ -1,0 +1,30 @@
+README
+
+* If you change the source, use the Ant build file to generate a fresh jaas-example.jar.
+* Run the examples from the main directory so that the policy.config and jaas.config are available.
+
+
+Case - I : Successful JAAS authentication without security manager
+
+java -Duser=rahul -Dpass=rahul -Djava.security.auth.login.config=jaas.config
+	-jar jaas-example.jar
+
+
+Case - II : Failed JAAS authentication without security manager
+
+java -Duser=rahul -Dpass=wrongpassword -Djava.security.auth.login.config=jaas.config
+	-jar jaas-example.jar
+
+
+Case - III : JAAS authentication with security manager enabled
+
+java -Duser=rahul -Dpass=rahul -Djava.security.manager -Djava.security.auth.login.config=jaas.config
+	-jar jaas-example.jar
+
+
+Case - IV : JAAS authentication with security manager enabled and policy file granting
+	the required permissions to the code
+
+java -Duser=rahul -Dpass=rahul -Djava.security.manager -Djava.security.auth.login.config=jaas.config
+	-Djava.security.policy=policy.config -jar jaas-example.jar
+
