@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<project default="jar" name="Authentication using JAAS">
+	<description>
+		Example code for the JAAS authentication article
+		Published in the JavaRanch Journal, April 2008
+		Author: Rahul Bhattacharjee
+
+		Build file to automate the process of compiling the source,
+		creating the jar file, and running the examples.
+	</description>
+
+	<target name="init">
+		<delete file="jaas-example.jar"/>
+		<mkdir  dir="src/classes"/>
+	</target>
+
+	<target name="compile" depends="init">
+		<javac srcdir="src"
+				destdir="src/classes"
+				debug="on"
+				source="1.4"/>
+	</target>
+
+	<target name="jar" depends="compile">
+		<jar destfile="jaas-example.jar" basedir="src/classes">
+			<manifest>
+				<attribute name="Main-Class" value="com.javaranch.auth.TestJaasAuthentication"/>
+			</manifest>
+		</jar>     
+	</target>
+
+	<!--
+	java -Duser=rahul -Dpass=rahul -Djava.security.auth.login.config=jaas.config -jar jaas-example.jar
+	-->
+	<target name="runCase1">
+		<java fork="true" classname="com.javaranch.auth.TestJaasAuthentication">
+			<classpath>
+				<pathelement path="jaas-example.jar" />
+			</classpath>
+			<sysproperty key="user" value="rahul"/>
+			<sysproperty key="pass" value="rahul"/>
+			<sysproperty key="java.security.auth.login.config" value="jaas.config"/>
+		</java>
+	</target>
+
+	<!--
+	java -Duser=rahul -Dpass=wrongpassword -Djava.security.auth.login.config=jaas.config -jar jaas-example.jar
+	-->
+	<target name="runCase2">
+		<java fork="true" classname="com.javaranch.auth.TestJaasAuthentication">
+			<classpath>
+				<pathelement path="jaas-example.jar" />
+			</classpath>
+			<sysproperty key="user" value="rahul"/>
+			<sysproperty key="pass" value="wrongpassword"/>
+			<sysproperty key="java.security.auth.login.config" value="jaas.config"/>
+		</java>
+	</target>
+
+	<!--
+	java -Duser=rahul -Dpass=rahul -Djava.security.manager -Djava.security.auth.login.config=jaas.config -jar jaas-example.jar
+	-->
+	<target name="runCase3">
+		<java fork="true" classname="com.javaranch.auth.TestJaasAuthentication">
+			<classpath>
+				<pathelement path="jaas-example.jar" />
+			</classpath>
+			<sysproperty key="user" value="rahul"/>
+			<sysproperty key="pass" value="rahul"/>
+			<sysproperty key="java.security.auth.login.config" value="jaas.config"/>
+			<sysproperty key="java.security.manager" value=""/>
+		</java>
+	</target>
+
+	<!--
+	java -Duser=rahul -Dpass=rahul -Djava.security.manager -Djava.security.auth.login.config=jaas.config -Djava.security.policy=policy.config -jar jaas-example.jar
+	-->
+	<target name="runCase4">
+		<java fork="true" classname="com.javaranch.auth.TestJaasAuthentication">
+			<classpath>
+				<pathelement path="jaas-example.jar" />
+			</classpath>
+			<sysproperty key="user" value="rahul"/>
+			<sysproperty key="pass" value="rahul"/>
+			<sysproperty key="java.security.auth.login.config" value="jaas.config"/>
+			<sysproperty key="java.security.manager" value=""/>
+			<sysproperty key="java.security.policy" value="policy.config"/>
+		</java>
+	</target>
+
+</project>
